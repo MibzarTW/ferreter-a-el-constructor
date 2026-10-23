@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería El Constructor | Apoyando tu obra</title>
+    <meta name="description" content="Materiales de construcción, herramientas, pinturas, electricidad, fontanería y cerámicas. Cotiza por WhatsApp.">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header-container"></div>
+
+    <!-- ============================================
+         HERO SLIDER
+         ============================================ -->
+    <section class="hero">
+        <div class="slider">
+
+            <div class="slide active">
+                <img src="/assets/img/hero/banner.webp" alt="Ferretería El Constructor">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">APOYANDO TU OBRA</span>
+                    <h1>Todo para construir, remodelar y mejorar tu hogar.</h1>
+                    <div class="hero-buttons">
+                        <a href="#categorias" class="btn-primary">Explorar productos</a>
+                        <a href="#contacto" class="btn-secondary">Contactar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="/assets/img/hero/banner2.webp" alt="Cerámicas">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">CERÁMICAS</span>
+                    <h1>Renueva cada espacio con diseños modernos.</h1>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="/assets/img/hero/banner3.webp" alt="Herramientas">
+                <div class="overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">HERRAMIENTAS</span>
+                    <h1>Marcas profesionales para cada trabajo.</h1>
+                </div>
+            </div>
+
+            <button class="prev" aria-label="Anterior">&#10094;</button>
+            <button class="next" aria-label="Siguiente">&#10095;</button>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BARRA DE CONFIANZA
+         ============================================ -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="trust-text">
+                        <strong>Envíos a todo el país</strong>
+                        <span>Productos pequeños a cualquier departamento</span>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="trust-text">
+                        <strong>Múltiples formas de pago</strong>
+                        <span>Efectivo, transferencia o link de pago</span>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="trust-text">
+                        <strong>Cotización por WhatsApp</strong>
+                        <span>Te respondemos en minutos</span>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="trust-text">
+                        <strong>Corresponsal Banco Agrícola</strong>
+                        <span>Haz tus trámites en nuestra sucursal</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CATEGORÍAS
+         ============================================ -->
+    <section id="categorias" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explora nuestras categorías</h2>
+                <p>Todo lo que necesitas para construir, remodelar y equipar tus proyectos.</p>
+            </div>
+
+            <div class="categories-grid">
+                <a href="/pages/herramientas.html" class="category">
+                    <img src="/assets/img/categorias/herramientas.webp" alt="Herramientas">
+                    <h3>Herramientas</h3>
+                </a>
+                <a href="/pages/materiales.html" class="category">
+                    <img src="/assets/img/categorias/materiales.webp" alt="Materiales">
+                    <h3>Materiales</h3>
+                </a>
+                <a href="/pages/pinturas.html" class="category">
+                    <img src="/assets/img/categorias/pinturas.webp" alt="Pinturas">
+                    <h3>Pinturas</h3>
+                </a>
+                <a href="/pages/electricidad.html" class="category">
+                    <img src="/assets/img/categorias/electricidad.webp" alt="Electricidad">
+                    <h3>Electricidad</h3>
+                </a>
+                <a href="/pages/fontaneria.html" class="category">
+                    <img src="/assets/img/categorias/fontaneria.webp" alt="Fontanería">
+                    <h3>Fontanería</h3>
+                </a>
+                <a href="/pages/ceramicas.html" class="category">
+                    <img src="/assets/img/categorias/ceramicas.webp" alt="Cerámicas">
+                    <h3>Cerámicas</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCTOS QUE PUEDES ENCONTRAR (carrusel)
+         ============================================ -->
+    <section class="section section-alt" id="descubre">
+        <div class="container">
+            <div class="descubre-header">
+                <div>
+                    <h2>Productos que puedes encontrar</h2>
+                    <p>Una muestra de nuestro catálogo, varía cada vez que visitas la página.</p>
+                </div>
+                <a href="/pages/herramientas.html" class="descubre-ver-todos">
+                    Ver todos los productos
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="descubre-carrusel-wrap">
+            <button class="descubre-arrow descubre-arrow-prev" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="descubre-carrusel" id="descubre-carrusel">
+                <p class="grid-loading">Cargando productos...</p>
+            </div>
+
+            <button class="descubre-arrow descubre-arrow-next" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BANNER COTIZA POR WHATSAPP
+         ============================================ -->
+    <section class="banner-wsp">
+        <div class="container">
+            <div class="banner-wsp-inner">
+
+                <div class="banner-wsp-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <div class="banner-wsp-text">
+                    <h3>¿Tienes tu lista de materiales?</h3>
+                    <p>Envíanosla por WhatsApp y te cotizamos en minutos. Sin filas, sin esperas.</p>
+                </div>
+
+                <a href="https://wa.me/50361498918?text=Hola%2C%20quiero%20cotizar%20materiales"
+                   target="_blank" rel="noopener"
+                   class="banner-wsp-btn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Cotizar ahora
+                </a>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================
+         MARCAS (carrusel infinito)
+         ============================================ -->
+    <section class="brands">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trabajamos con las mejores marcas</h2>
+                <p>Calidad y respaldo para cada uno de tus proyectos.</p>
+            </div>
+        </div>
+        <div class="brands-slider">
+            <div class="brands-track">
+                <img src="/assets/img/marcas/ingco.webp" alt="Ingco">
+                <img src="/assets/img/marcas/truper.webp" alt="Truper">
+                <img src="/assets/img/marcas/pretul.webp" alt="Pretul">
+                <img src="/assets/img/marcas/volteck.webp" alt="Volteck">
+                <img src="/assets/img/marcas/total.webp" alt="Total">
+                <img src="/assets/img/marcas/disensa.webp" alt="Disensa">
+                <!-- Duplicado para loop continuo -->
+                <img src="/assets/img/marcas/ingco.webp" alt="Ingco">
+                <img src="/assets/img/marcas/truper.webp" alt="Truper">
+                <img src="/assets/img/marcas/pretul.webp" alt="Pretul">
+                <img src="/assets/img/marcas/volteck.webp" alt="Volteck">
+                <img src="/assets/img/marcas/total.webp" alt="Total">
+                <img src="/assets/img/marcas/disensa.webp" alt="Disensa">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NUEVOS INGRESOS (solo aparece si hay productos marcados como nuevos)
+         ============================================ -->
+    <section class="section section-alt" id="nuevos-section" style="display:none;">
+        <div class="container">
+            <div class="descubre-header">
+                <div>
+                    <h2>Nuevos ingresos</h2>
+                    <p>Los productos que acaban de llegar a nuestra ferretería.</p>
+                </div>
+                <a href="/pages/ceramicas.html" class="descubre-ver-todos">
+                    Ver todo el catálogo
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="descubre-carrusel-wrap">
+            <button class="descubre-arrow nuevos-arrow-prev" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="descubre-carrusel" id="nuevos-carrusel"></div>
+
+            <button class="descubre-arrow nuevos-arrow-next" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RECIÉN VISTOS (solo aparece si el usuario ya vio productos)
+         ============================================ -->
+    <section class="section" id="recien-vistos-section" style="display:none;">
+        <div class="container">
+            <div class="descubre-header">
+                <div>
+                    <h2>Recién vistos</h2>
+                    <p>Los productos que estuviste revisando hace poco.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="descubre-carrusel-wrap">
+            <button class="descubre-arrow vistos-arrow-prev" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="descubre-carrusel" id="recien-vistos-carrusel"></div>
+
+            <button class="descubre-arrow vistos-arrow-next" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BENEFICIOS / POR QUÉ ELEGIRNOS
+         ============================================ -->
+    <section class="section beneficios-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por qué elegirnos</h2>
+                <p>Más que una ferretería, un aliado para tus proyectos.</p>
+            </div>
+
+            <div class="beneficios-grid">
+
+                <div class="beneficio-card">
+                    <div class="beneficio-top">
+                        <span class="beneficio-num">01</span>
+                        <i class="fa-solid fa-layer-group beneficio-icon"></i>
+                    </div>
+                    <h3>Amplia variedad</h3>
+                    <p>Encuentra pisos, paredes, porcelanatos, herramientas, pinturas, griferías y todo lo necesario para desarrollar tus proyectos en un solo lugar.</p>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-top">
+                        <span class="beneficio-num">02</span>
+                        <i class="fa-solid fa-tag beneficio-icon"></i>
+                    </div>
+                    <h3>Precios competitivos</h3>
+                    <p>Accede a productos de excelente calidad con precios ajustados a cada presupuesto. Cotiza sin compromiso y compara.</p>
+                </div>
+
+                <div class="beneficio-card beneficio-destacado">
+                    <div class="beneficio-destacado-content">
+                        <span class="beneficio-num-destacado">03</span>
+                        <h3>Asesoría profesional</h3>
+                        <p>Convierte tus ideas en proyectos con nosotors en cada etapa.</p>
+                        <a href="https://wa.me/50361498918?text=Hola%2C%20necesito%20asesor%C3%ADa"
+                           target="_blank" rel="noopener"
+                           class="beneficio-btn">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            Hablar con un asesor
+                        </a>
+                    </div>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-top">
+                        <span class="beneficio-num">04</span>
+                        <i class="fa-solid fa-medal beneficio-icon"></i>
+                    </div>
+                    <h3>Calidad garantizada</h3>
+                    <p>Productos seleccionados de las mejores marcas para ofrecer resistencia, durabilidad y acabados que conservan su belleza con el paso del tiempo.</p>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-top">
+                        <span class="beneficio-num">05</span>
+                        <i class="fa-solid fa-house-chimney beneficio-icon"></i>
+                    </div>
+                    <h3>Todo para tu proyecto en un solo lugar</h3>
+                    <p>Reúne los acabados que necesitas para renovar cada espacio sin buscar en diferentes lugares.</p>
+                </div>
+
+                <div class="beneficio-card">
+                    <div class="beneficio-top">
+                        <span class="beneficio-num">06</span>
+                        <i class="fa-solid fa-truck-fast beneficio-icon"></i>
+                    </div>
+                    <h3>Entrega oportuna</h3>
+                    <p>Coordinamos la entrega de tus materiales para que lleguen en el momento adecuado según tu proyecto.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- ============================================
+         MODAL DEL CARRITO
+         ============================================ -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mi cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="modal-actions">
+                <button id="empty-cart" class="btn-ghost">Vaciar todo</button>
+                <button id="send-whatsapp" class="btn-primary">Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MODAL DE CONFIRMACIÓN (Vaciar cotización)
+         ============================================ -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Vaciar cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <p class="modal-text">
+                ¿Estás seguro de que quieres vaciar toda la cotización?<br>
+                Esta acción no se puede deshacer.
+            </p>
+            <div class="modal-actions">
+                <button class="btn-ghost" data-close-modal>Cancelar</button>
+                <button class="btn-danger" id="confirm-empty-yes">Sí, vaciar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de avisos flotantes -->
+    <div id="toast-container"></div>
+
+    <!-- JS principal -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/destacados.js"></script>
+    <script src="/assets/js/recienVistos.js"></script>
+    <script src="/assets/js/nuevos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
