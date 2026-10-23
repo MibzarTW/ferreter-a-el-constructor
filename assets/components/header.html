@@ -1,0 +1,60 @@
+<header id="header">
+    <div class="container header-container">
+
+        <a href="/index.html" class="logo">
+            <img src="/assets/img/logo/logo-rojo.webp" alt="Ferretería El Constructor">
+        </a>
+
+        <nav class="main-nav">
+            <ul class="menu">
+                <li><a href="/index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#">Productos <span class="arrow">▾</span></a>
+                    <ul class="submenu">
+                        <li><a href="/pages/herramientas.html">Herramientas</a></li>
+                        <li><a href="/pages/materiales.html">Materiales</a></li>
+                        <li><a href="/pages/pinturas.html">Pinturas</a></li>
+                        <li><a href="/pages/electricidad.html">Electricidad</a></li>
+                        <li><a href="/pages/fontaneria.html">Fontanería</a></li>
+                        <li><a href="/pages/ceramicas.html">Cerámicas</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pages/servicios.html">Servicios</a></li>
+                <li><a href="/pages/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+
+            <!-- Carrito -->
+            <button id="btn-carrito" class="cart-btn" aria-label="Mi cotización" title="Mi cotización">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count" class="cart-count">0</span>
+            </button>
+
+            <!-- WhatsApp directo -->
+            <a href="https://wa.me/50361498918?text=Hola%2C%20quiero%20hacer%20una%20consulta"
+               target="_blank" rel="noopener"
+               class="whatsapp-btn"
+               aria-label="WhatsApp"
+               title="Escribir por WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <!-- Buscador -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+                <button id="searchButton" aria-label="Buscar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- Tema -->
+            <button id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+                <i class="fa-solid fa-moon icon-moon"></i>
+                <i class="fa-solid fa-sun icon-sun"></i>
+            </button>
+
+        </div>
+    </div>
+</header>
