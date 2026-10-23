@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando... | Ferretería El Constructor</title>
+    <meta name="description" content="Detalle del producto. Cotiza por WhatsApp.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Ruta de navegación">
+                <a href="/index.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a id="bc-categoria" href="#">Categoría</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span id="bc-nombre">Producto</span>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section producto-detalle-section">
+        <div class="container">
+            <div class="producto-detalle-grid" id="producto-detalle">
+                <p class="grid-loading" style="grid-column:1/-1;">Cargando producto...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="relacionados-seccion">
+        <div class="container">
+            <div class="section-title">
+                <h2>También te puede interesar</h2>
+                <p>Otros productos de la misma categoría.</p>
+            </div>
+            <div class="products-grid" id="relacionados-grid"></div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mi cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="modal-actions">
+                <button id="empty-cart" class="btn-ghost">Vaciar todo</button>
+                <button id="send-whatsapp" class="btn-primary">Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Vaciar cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <p class="modal-text">¿Estás seguro de que quieres vaciar toda la cotización?<br>Esta acción no se puede deshacer.</p>
+            <div class="modal-actions">
+                <button class="btn-ghost" data-close-modal>Cancelar</button>
+                <button class="btn-danger" id="confirm-empty-yes">Sí, vaciar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/producto.js"></script>
+</body>
+</html>

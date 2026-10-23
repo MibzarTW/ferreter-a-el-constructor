@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerámicas | Ferretería El Constructor</title>
+    <meta name="description" content="Más de 300 diseños de cerámicas, azulejos, fachaletas, porcelanatos y pisos.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <!-- ============ HERO DE CERÁMICAS ============ -->
+    <section class="ceramicas-hero">
+        <div class="container hero-inner">
+            <h1 id="ceramicas-titulo">Cerámicas</h1>
+            <p>Más de 300 diseños para cada estilo y espacio.</p>
+        </div>
+
+        <!-- Nav de tipologías (siempre visible bajo el hero) -->
+        <div class="tipologias-bar">
+            <div class="container">
+                <div class="tipologias-nav" id="tipologias-nav"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GRID DE PRODUCTOS ============ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Catálogo</h2>
+                <p><span id="ceramicas-count">0</span> productos disponibles</p>
+            </div>
+
+            <div class="products-grid products-grid-ceramicas" id="ceramicas-grid">
+                <p class="grid-loading">Cargando cerámicas...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿No encuentras el diseño que buscas?</h2>
+            <p>Escríbenos y te ayudamos a encontrarlo.</p>
+            <a href="https://wa.me/50361498918" target="_blank" rel="noopener" class="btn-whatsapp">
+                </i> Escribir por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mi cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="modal-actions">
+                <button id="empty-cart" class="btn-ghost">Vaciar todo</button>
+                <button id="send-whatsapp" class="btn-primary">Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Vaciar cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <p class="modal-text">¿Estás seguro de que quieres vaciar toda la cotización?<br>Esta acción no se puede deshacer.</p>
+            <div class="modal-actions">
+                <button class="btn-ghost" data-close-modal>Cancelar</button>
+                <button class="btn-danger" id="confirm-empty-yes">Sí, vaciar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <!-- ... Todo tu código HTML de arriba ... -->
+
+    <!-- 1. Primero la librería de Supabase (desde internet) -->
+
+    <!-- Supabase JS Library & App Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/ceramicas.js"></script>
+</body>
+</html>

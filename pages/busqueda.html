@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar | Ferretería El Constructor</title>
+    <meta name="description" content="Busca productos en todo nuestro catálogo.">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <!-- ============ CABECERA DE BÚSQUEDA ============ -->
+    <section class="page-hero page-hero-light">
+        <div class="container">
+            <span class="hero-badge">BÚSQUEDA</span>
+            <h1 id="busqueda-titulo">Buscar productos</h1>
+            <p id="busqueda-subtitulo">Escribe el nombre, marca o código del producto que buscas.</p>
+
+            <div class="busqueda-search">
+                <input type="text" id="busqueda-input" placeholder="Ej: taladro, cemento, cable #12..." autocomplete="off" autofocus>
+                <button id="busqueda-btn" aria-label="Buscar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ RESULTADOS ============ -->
+    <section class="section">
+        <div class="container">
+
+            <div class="products-grid" id="resultados-grid"></div>
+
+            <!-- Estado: sin resultados -->
+            <div class="sin-resultados" id="sin-resultados" style="display:none;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>No encontramos nada</h3>
+                <p>Prueba con otro término o explora nuestras categorías:</p>
+                <div class="sugerencias-categorias" id="sugerencias"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- ============ MODAL CARRITO ============ -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Mi cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="modal-actions">
+                <button id="empty-cart" class="btn-ghost">Vaciar todo</button>
+                <button id="send-whatsapp" class="btn-primary">Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL CONFIRMACIÓN ============ -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h3>Vaciar cotización</h3>
+                <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
+            </div>
+            <p class="modal-text">
+                ¿Estás seguro de que quieres vaciar toda la cotización?<br>
+                Esta acción no se puede deshacer.
+            </p>
+            <div class="modal-actions">
+                <button class="btn-ghost" data-close-modal>Cancelar</button>
+                <button class="btn-danger" id="confirm-empty-yes">Sí, vaciar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/productos.js"></script>
+    <script src="/assets/js/busqueda.js"></script>
+</body>
+</html>
