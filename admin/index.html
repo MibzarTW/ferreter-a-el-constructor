@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ferretería El Constructor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <div class="sidebar-brand-text">
+                    <h2>El Constructor</h2>
+                    <span>Panel de Control</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-heading">Principal</div>
+                <a href="/admin/index.html" class="sidebar-link active">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+
+                <div class="sidebar-nav-heading">Catálogo</div>
+                <a href="/admin/productos.html" class="sidebar-link">
+                    <i class="fa-solid fa-box"></i> Productos
+                </a>
+                <a href="/admin/categorias.html" class="sidebar-link">
+                    <i class="fa-solid fa-tags"></i> Categorías
+                </a>
+                <a href="/admin/subcategorias.html" class="sidebar-link">
+                    <i class="fa-solid fa-layer-group"></i> Subcategorías
+                </a>
+                <a href="/admin/marcas.html" class="sidebar-link">
+                    <i class="fa-solid fa-certificate"></i> Marcas
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" target="_blank" class="btn-sidebar-store">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Tienda Pública
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="admin-main">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button id="btn-menu-toggle" class="btn-menu-toggle" aria-label="Menú">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="topbar-title">Resumen del Catálogo</div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="admin-user-info">
+                        <div id="admin-user-avatar" class="admin-user-avatar">A</div>
+                        <span id="admin-user-email">admin@elconstructor.com</span>
+                    </div>
+                    <button id="btn-logout" class="btn-logout" title="Cerrar sesión">
+                        <i class="fa-solid fa-right-from-bracket"></i> Salir
+                    </button>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <main class="admin-content">
+
+                <div class="page-header">
+                    <div class="page-header-text">
+                        <h1>Panel de Métricas</h1>
+                        <p>Estado en tiempo real del catálogo sincronizado con Supabase.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <a href="/admin/productos.html?nuevo=1" class="btn-admin btn-admin-primary">
+                            <i class="fa-solid fa-plus"></i> Nuevo Producto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Métricas -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-data">
+                            <h3>Total Productos</h3>
+                            <div id="metric-total-productos" class="metric-value">—</div>
+                            <div class="metric-desc">Registrados en base de datos</div>
+                        </div>
+                        <div class="metric-icon blue">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-data">
+                            <h3>Productos Activos</h3>
+                            <div id="metric-productos-activos" class="metric-value">—</div>
+                            <div class="metric-desc">Visibles para los clientes</div>
+                        </div>
+                        <div class="metric-icon green">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-data">
+                            <h3>Bajo Stock / Agotados</h3>
+                            <div id="metric-bajo-stock" class="metric-value">—</div>
+                            <div class="metric-desc">Existencia menor o igual a 5</div>
+                        </div>
+                        <div class="metric-icon amber">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-data">
+                            <h3>Categorías / Marcas</h3>
+                            <div class="metric-value">
+                                <span id="metric-total-categorias">—</span> / <span id="metric-total-marcas">—</span>
+                            </div>
+                            <div class="metric-desc">Categorías y marcas activas</div>
+                        </div>
+                        <div class="metric-icon purple">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Actividad Reciente -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Últimos Productos Actualizados</h2>
+                        <a href="/admin/productos.html" class="btn-admin btn-admin-secondary btn-admin-sm">
+                            Ver todos los productos <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Producto</th>
+                                    <th>Stock</th>
+                                    <th>Estado</th>
+                                    <th>Actualizado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-products-tbody">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; padding: 24px;">
+                                        <i class="fa-solid fa-spinner fa-spin"></i> Cargando resumen...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/admin/js/auth-guard.js"></script>
+    <script src="/admin/js/dashboard.js"></script>
+</body>
+</html>

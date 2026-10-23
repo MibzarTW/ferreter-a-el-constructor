@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Categorías | Ferretería El Constructor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <div class="sidebar-brand-text">
+                    <h2>El Constructor</h2>
+                    <span>Panel de Control</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-heading">Principal</div>
+                <a href="/admin/index.html" class="sidebar-link">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+
+                <div class="sidebar-nav-heading">Catálogo</div>
+                <a href="/admin/productos.html" class="sidebar-link">
+                    <i class="fa-solid fa-box"></i> Productos
+                </a>
+                <a href="/admin/categorias.html" class="sidebar-link active">
+                    <i class="fa-solid fa-tags"></i> Categorías
+                </a>
+                <a href="/admin/subcategorias.html" class="sidebar-link">
+                    <i class="fa-solid fa-layer-group"></i> Subcategorías
+                </a>
+                <a href="/admin/marcas.html" class="sidebar-link">
+                    <i class="fa-solid fa-certificate"></i> Marcas
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" target="_blank" class="btn-sidebar-store">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Tienda Pública
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="admin-main">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button id="btn-menu-toggle" class="btn-menu-toggle" aria-label="Menú">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="topbar-title">Categorías del Sistema</div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="admin-user-info">
+                        <div id="admin-user-avatar" class="admin-user-avatar">A</div>
+                        <span id="admin-user-email">admin@elconstructor.com</span>
+                    </div>
+                    <button id="btn-logout" class="btn-logout" title="Cerrar sesión">
+                        <i class="fa-solid fa-right-from-bracket"></i> Salir
+                    </button>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <main class="admin-content">
+
+                <div class="page-header">
+                    <div class="page-header-text">
+                        <h1>Categorías</h1>
+                        <p>Clasificación interna de productos y su mapeo al grupo o sección de la tienda web.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button onclick="abrirModalCategoria()" class="btn-admin btn-admin-primary">
+                            <i class="fa-solid fa-plus"></i> Nueva Categoría
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta con Tabla y Filtros -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <div class="table-filters" style="width: 100%;">
+                            <div class="search-input-wrap">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search-categoria" placeholder="Buscar categoría o ID...">
+                            </div>
+
+                            <select id="filter-grupo" class="filter-select">
+                                <option value="">Todos los grupos web</option>
+                                <option value="herramientas">Herramientas</option>
+                                <option value="materiales">Materiales</option>
+                                <option value="pinturas">Pinturas</option>
+                                <option value="electricidad">Electricidad</option>
+                                <option value="fontaneria">Fontanería</option>
+                                <option value="ceramicas">Cerámicas</option>
+                                <option value="hogar">Hogar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre de Categoría</th>
+                                    <th>Slug URL</th>
+                                    <th>Grupo Web</th>
+                                    <th>Productos</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categorias-tbody">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; padding: 24px;">
+                                        <i class="fa-solid fa-spinner fa-spin"></i> Cargando categorías...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Categoría -->
+    <div id="modal-categoria" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 id="modal-cat-title">Nueva Categoría</h3>
+                <button type="button" class="admin-modal-close" onclick="cerrarModalCategoria()">✕</button>
+            </div>
+
+            <form id="form-categoria">
+                <div class="admin-modal-body">
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label class="form-label" for="cat-id">ID de Categoría <span class="required">*</span></label>
+                            <input type="text" id="cat-id" class="form-control" placeholder="Ej: CAT-59" required>
+                            <span class="form-hint">Formato estándar CAT-XX compatible con importaciones.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cat-grupo">Grupo Web Destino <span class="required">*</span></label>
+                            <select id="cat-grupo" class="form-control" required>
+                                <option value="herramientas">Herramientas</option>
+                                <option value="materiales">Materiales</option>
+                                <option value="pinturas">Pinturas</option>
+                                <option value="electricidad">Electricidad</option>
+                                <option value="fontaneria">Fontanería</option>
+                                <option value="ceramicas">Cerámicas</option>
+                                <option value="hogar">Hogar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-span-2">
+                            <label class="form-label" for="cat-nombre">Nombre de la Categoría <span class="required">*</span></label>
+                            <input type="text" id="cat-nombre" class="form-control" placeholder="Ej: Pulidoras y Lijadoras" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cat-slug">Slug URL (opcional)</label>
+                            <input type="text" id="cat-slug" class="form-control" placeholder="pulidoras-lijadoras">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cat-orden">Orden de aparición</label>
+                            <input type="number" id="cat-orden" class="form-control" value="0">
+                        </div>
+
+                        <div class="form-group col-span-2">
+                            <label class="form-label" for="cat-icono">Ícono Font Awesome (opcional)</label>
+                            <input type="text" id="cat-icono" class="form-control" placeholder="fa-solid fa-wrench">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="admin-modal-footer">
+                    <button type="button" class="btn-admin btn-admin-secondary" onclick="cerrarModalCategoria()">Cancelar</button>
+                    <button type="submit" class="btn-admin btn-admin-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar Categoría
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/admin/js/auth-guard.js"></script>
+    <script src="/admin/js/categorias.js"></script>
+</body>
+</html>

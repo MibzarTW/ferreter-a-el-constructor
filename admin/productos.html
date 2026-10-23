@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos | Ferretería El Constructor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <div class="sidebar-brand-text">
+                    <h2>El Constructor</h2>
+                    <span>Panel de Control</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-heading">Principal</div>
+                <a href="/admin/index.html" class="sidebar-link">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+
+                <div class="sidebar-nav-heading">Catálogo</div>
+                <a href="/admin/productos.html" class="sidebar-link active">
+                    <i class="fa-solid fa-box"></i> Productos
+                </a>
+                <a href="/admin/categorias.html" class="sidebar-link">
+                    <i class="fa-solid fa-tags"></i> Categorías
+                </a>
+                <a href="/admin/subcategorias.html" class="sidebar-link">
+                    <i class="fa-solid fa-layer-group"></i> Subcategorías
+                </a>
+                <a href="/admin/marcas.html" class="sidebar-link">
+                    <i class="fa-solid fa-certificate"></i> Marcas
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" target="_blank" class="btn-sidebar-store">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Tienda Pública
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="admin-main">
+
+            <!-- Topbar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button id="btn-menu-toggle" class="btn-menu-toggle" aria-label="Menú">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="topbar-title">Administración del Catálogo</div>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="admin-user-info">
+                        <div id="admin-user-avatar" class="admin-user-avatar">A</div>
+                        <span id="admin-user-email">admin@elconstructor.com</span>
+                    </div>
+                    <button id="btn-logout" class="btn-logout" title="Cerrar sesión">
+                        <i class="fa-solid fa-right-from-bracket"></i> Salir
+                    </button>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <main class="admin-content">
+
+                <div class="page-header">
+                    <div class="page-header-text">
+                        <h1>Productos</h1>
+                        <p>Catálogo maestro de productos con imágenes, inventario y clasificación.</p>
+                    </div>
+                    <div class="page-header-actions">
+                        <button onclick="abrirModalProducto()" class="btn-admin btn-admin-primary">
+                            <i class="fa-solid fa-plus"></i> Nuevo Producto
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta con Tabla y Filtros -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <div class="table-filters" style="width: 100%;">
+                            <!-- Buscador -->
+                            <div class="search-input-wrap">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" id="search-input" placeholder="Buscar por código o nombre...">
+                            </div>
+
+                            <!-- Filtro Categoría -->
+                            <select id="filter-categoria" class="filter-select">
+                                <option value="">Todas las categorías</option>
+                            </select>
+
+                            <!-- Filtro Marca -->
+                            <select id="filter-marca" class="filter-select">
+                                <option value="">Todas las marcas</option>
+                            </select>
+
+                            <!-- Filtro Estado -->
+                            <select id="filter-estado" class="filter-select">
+                                <option value="">Todos los estados</option>
+                                <option value="activo">Solo Activos</option>
+                                <option value="inactivo">Solo Inactivos</option>
+                                <option value="destacado">Solo Destacados</option>
+                                <option value="nuevo">Solo Nuevos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Código</th>
+                                    <th>Nombre del Producto</th>
+                                    <th>Stock</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productos-tbody">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; padding: 24px;">
+                                        <i class="fa-solid fa-spinner fa-spin"></i> Cargando productos...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="admin-card-footer">
+                        <span id="pagination-info">Mostrando 0 productos</span>
+                        <div class="pagination-controls">
+                            <button id="btn-prev-page" class="btn-admin btn-admin-secondary btn-admin-sm">
+                                <i class="fa-solid fa-chevron-left"></i> Anterior
+                            </button>
+                            <span id="pagination-current-page" style="margin: 0 8px; font-weight: 500;">Página 1</span>
+                            <button id="btn-next-page" class="btn-admin btn-admin-secondary btn-admin-sm">
+                                Siguiente <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Formulario de Producto -->
+    <div id="modal-producto" class="admin-modal-overlay">
+        <div class="admin-modal modal-lg">
+            <div class="admin-modal-header">
+                <h3 id="modal-producto-title">Crear Nuevo Producto</h3>
+                <button type="button" class="admin-modal-close" onclick="cerrarModalProducto()">✕</button>
+            </div>
+
+            <form id="form-producto">
+                <div class="admin-modal-body">
+                    <div class="form-grid">
+
+                        <!-- Código y Nombre -->
+                        <div class="form-group">
+                            <label class="form-label" for="prod-codigo">Código del Producto <span class="required">*</span></label>
+                            <input type="text" id="prod-codigo" class="form-control" placeholder="Ej: 100787 o DEMO-011" required>
+                            <span class="form-hint">Clave única en la base de datos. No se puede modificar después.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="prod-existencia">Existencia / Inventario</label>
+                            <input type="number" id="prod-existencia" class="form-control" step="any" min="0" value="0">
+                        </div>
+
+                        <div class="form-group col-span-2">
+                            <label class="form-label" for="prod-nombre">Nombre Completo <span class="required">*</span></label>
+                            <input type="text" id="prod-nombre" class="form-control" placeholder="Nombre comercial del artículo" required>
+                        </div>
+
+                        <!-- Categoría, Subcategoría y Marca -->
+                        <div class="form-group">
+                            <label class="form-label" for="prod-categoria">Categoría</label>
+                            <select id="prod-categoria" class="form-control">
+                                <option value="">Seleccionar categoría...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="prod-subcategoria">Subcategoría (opcional)</label>
+                            <select id="prod-subcategoria" class="form-control">
+                                <option value="">(Sin subcategoría)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="prod-marca">Marca</label>
+                            <select id="prod-marca" class="form-control">
+                                <option value="">Seleccionar marca...</option>
+                            </select>
+                        </div>
+
+                        <!-- Switches de Estado -->
+                        <div class="form-group">
+                            <label class="form-label">Opciones de Visibilidad</label>
+                            <div class="form-switches-row">
+                                <label class="switch-label">
+                                    <input type="checkbox" id="prod-activo" class="switch-input" checked>
+                                    <span>Activo</span>
+                                </label>
+                                <label class="switch-label">
+                                    <input type="checkbox" id="prod-destacado" class="switch-input">
+                                    <span>Destacado</span>
+                                </label>
+                                <label class="switch-label">
+                                    <input type="checkbox" id="prod-nuevo" class="switch-input">
+                                    <span>Nuevo</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="form-group col-span-2">
+                            <label class="form-label" for="prod-descripcion">Descripción del Producto</label>
+                            <textarea id="prod-descripcion" class="form-control" placeholder="Detalles, usos recomendados, características principales..."></textarea>
+                        </div>
+
+                        <!-- Galería / Subida de Imágenes -->
+                        <div class="form-group col-span-2">
+                            <label class="form-label">Imágenes del Producto</label>
+                            
+                            <!-- Subida a Storage -->
+                            <div class="upload-dropzone" onclick="document.getElementById('prod-file-upload').click()">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <p>Haz clic para subir imágenes desde tu equipo</p>
+                                <span>Se almacenan automáticamente en Supabase Storage (bucket "productos")</span>
+                                <input type="file" id="prod-file-upload" accept="image/*" multiple style="display: none;">
+                            </div>
+
+                            <!-- O URL externa -->
+                            <div style="display: flex; gap: 8px; margin-top: 10px;">
+                                <input type="url" id="prod-img-url-input" class="form-control" placeholder="O pega una URL de imagen externa (https://...)">
+                                <button type="button" id="btn-add-img-url" class="btn-admin btn-admin-secondary" style="flex-shrink: 0;">
+                                    <i class="fa-solid fa-plus"></i> Añadir URL
+                                </button>
+                            </div>
+
+                            <!-- Miniaturas cargadas -->
+                            <div id="image-preview-strip" class="image-preview-strip"></div>
+                        </div>
+
+                        <!-- Especificaciones JSON -->
+                        <div class="form-group col-span-2">
+                            <label class="form-label" for="prod-specs-json">Especificaciones Técnicas (JSON)</label>
+                            <textarea id="prod-specs-json" class="form-control" style="font-family: monospace; font-size: 12px; min-height: 90px;" placeholder='{"material": "Acero", "medida": "1/2 pulgada"}'></textarea>
+                            <span class="form-hint">Objeto clave/valor opcional para la ficha técnica del producto.</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="admin-modal-footer">
+                    <button type="button" class="btn-admin btn-admin-secondary" onclick="cerrarModalProducto()">Cancelar</button>
+                    <button type="submit" id="btn-save-producto" class="btn-admin btn-admin-primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar Producto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/supabase.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/admin/js/auth-guard.js"></script>
+    <script src="/admin/js/productos.js"></script>
+</body>
+</html>
